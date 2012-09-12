@@ -1,0 +1,28 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-12 08:42:43
+project --topLevelPackage com.redcap.hashdefine --projectName hashDefine --java 6 --packaging WAR
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-12 08:42:47
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-12 08:42:52
+hint
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+hint
+ent jpa --class ~.domain.Ticket
+field string --fieldName description --notNull
+field string --fieldName summary --notNull
+field string --fieldName reference --notNull
+entity jpa --class ~.domain.LogMessage 
+focus --class ~.domain.Ticket
+field set --fieldName logMessages --type ~.domain.LogMessage --cardinality ONE_TO_MANY --mappedBy ticket
+focus --class ~.domain.LogMessage
+field reference --fieldName ticket --type ~.domain.Ticket --cardinality MANY_TO_ONE 
+finder list
+field string --fieldName message --notNull
+finder list
+finder add findLogMessagesByMessageLike
+focus --class ~.domain.Ticket
+finder list
+finder add findTicketsByDescriptionLike
+finder add findTicketsByReferenceLike 
+finder add findTicketsBySummaryLike
+controller scaffold --entity ~.domain.LogMessage --class ~.web.LogMessageController
+controller scaffold --entity ~.domain.Ticket --class ~.web.TicketController
+json all

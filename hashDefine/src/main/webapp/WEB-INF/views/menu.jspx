@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_logmessage" z="6bFaGbvG6jWyrW9VbFBAN3SwulY=">
+            <menu:item id="i_logmessage_new" messageCode="global_menu_new" url="/logmessages?form" z="eNHNtR7Pok5r0sffOccXZSm+cuo="/>
+            <menu:item id="i_logmessage_list" messageCode="global_menu_list" url="/logmessages?page=1&amp;size=${empty param.size ? 10 : param.size}" z="hAch36J0dFO1da/gA6DkHo+knzI="/>
+        </menu:category>
+        <menu:category id="c_ticket" z="G7VU8CiWnuCkHh/K83Evm60Xaek=">
+            <menu:item id="i_ticket_new" messageCode="global_menu_new" url="/tickets?form" z="ihGqymjWfNKoS9yitLIwy8upZkY="/>
+            <menu:item id="i_ticket_list" messageCode="global_menu_list" url="/tickets?page=1&amp;size=${empty param.size ? 10 : param.size}" z="kWJCiMz/kWtExHSzsKHZ9hXpK3M="/>
+        </menu:category>
+    </menu:menu>
+</div>

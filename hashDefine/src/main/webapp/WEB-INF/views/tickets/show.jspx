@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_redcap_hashdefine_domain_Ticket" object="${ticket}" path="/tickets" z="qBm7Ikng8Nb0HjDSc36CSEaY0+s=">
+        <field:display field="description" id="s_com_redcap_hashdefine_domain_Ticket_description" object="${ticket}" z="nC7nAx9zdV2rVMh4pObwlbuLXpk="/>
+        <field:display field="summary" id="s_com_redcap_hashdefine_domain_Ticket_summary" object="${ticket}" z="IkoiAi1cKBixNdIzKPBf6Djk1V0="/>
+        <field:display field="reference" id="s_com_redcap_hashdefine_domain_Ticket_reference" object="${ticket}" z="P6DHZAnnHMryQmpyad4rwNEln/o="/>
+    </page:show>
+</div>

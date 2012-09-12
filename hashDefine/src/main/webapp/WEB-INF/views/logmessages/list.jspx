@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_redcap_hashdefine_domain_LogMessage" items="${logmessages}" z="3fqdX2MgH8+cyq17snldA/YHSF0=">
+        <table:table data="${logmessages}" id="l_com_redcap_hashdefine_domain_LogMessage" path="/logmessages" z="TqTRWjo8rUqoz0neJp3B8xTeHdM=">
+            <table:column id="c_com_redcap_hashdefine_domain_LogMessage_ticket" property="ticket" z="Uv/hiCfe8vZsch/SaNJ1Jsd4G+E="/>
+            <table:column id="c_com_redcap_hashdefine_domain_LogMessage_message" property="message" z="MkX0X2J3P6siSPJGbAwZqOhi96Y="/>
+        </table:table>
+    </page:list>
+</div>
