@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 
 import org.junit.Test;
 
@@ -146,31 +147,16 @@ public class TicketTest {
     // Test case to bring information in from the hashDefine Extract to tickets
     @Test
     public void fromJsonToTicket() {
-    	String jsonTickets = getResourceAsString("extract.json");
+    	Reader jsonTickets = getResourceAsReader("extract.json");
     	Ticket ticket = new JSONDeserializer<Ticket>().deserialize( jsonTickets, Ticket.class );
     	
         org.junit.Assert.assertTrue(true);
     }
     
-    private String getResourceAsString(String filename) {
-    	StringBuffer buffer = new StringBuffer();
+    private Reader getResourceAsReader(String filename) {
     	InputStream is = this.getClass().getClassLoader().getResourceAsStream(filename);
-    	    try{
-    	          BufferedReader br = new BufferedReader(new InputStreamReader(is));
-    	          
-    	          String line;
-    	          while ((line = br.readLine()) != null) {
-    	        	  buffer.append(line);
-    	             // System.out.println(line);
-    	       	  } 
-    	          br.close();
-    	          
-    	          
-    	 
-    	    	}catch(IOException e){
-    	    		e.printStackTrace();
-    	    	}
-    	    return buffer.toString();
+    	BufferedReader br = new BufferedReader(new InputStreamReader(is));
+    	return br;
     }
 
     @Test
