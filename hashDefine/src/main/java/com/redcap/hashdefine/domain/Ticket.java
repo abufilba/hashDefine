@@ -10,7 +10,7 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
-@RooJson
+@RooJson(toJsonMethod="", fromJsonMethod="",fromJsonArrayMethod="fromJsonToArray")
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord(finders = { "findTicketsByDescriptionLike", "findTicketsByReferenceLike", "findTicketsBySummaryLike" })
@@ -27,4 +27,5 @@ public class Ticket {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ticket")
     private Set<LogMessage> logMessages = new HashSet<LogMessage>();
+    
 }

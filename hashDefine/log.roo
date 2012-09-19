@@ -30,3 +30,5 @@ json all
 json add --class ~.domain.Ticket
 test stub --class ~.domain.Ticket
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-12 21:09:46
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-19 20:20:08
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-19 21:31:30
