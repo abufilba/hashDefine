@@ -1,10 +1,16 @@
 package com.redcap.hashdefine.domain;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
 
 import org.junit.Test;
 
@@ -143,20 +149,33 @@ public class TicketTest {
     public void toJson() {
         org.junit.Assert.assertTrue(true);
     }
-
+    
+    
     // Test case to bring information in from the hashDefine Extract to tickets
     @Test
     public void fromJsonToTicket() {
-    	Reader jsonTickets = getResourceAsReader("extract.json");
-    	Ticket ticket = new JSONDeserializer<Ticket>().deserialize( jsonTickets, Ticket.class );
     	
-        org.junit.Assert.assertTrue(true);
+    	Reader jsonTickets = getResourceAsReader("extract.json");
+    	Ticket[] tickets = new JSONDeserializer<Ticket[]>().use("values.logMessages", HashSet.class).use("values.logMessages.values", new LogMessageObjectFactory()).deserialize( jsonTickets, Ticket[].class );
+    	
+        org.junit.Assert.assertNotNull(tickets);
+        assertEquals(tickets[0].getSummary(),"WP3150-4 Drools Guvnor Investigations");
     }
     
     private Reader getResourceAsReader(String filename) {
+    	StringBuffer buffer = new StringBuffer();
     	InputStream is = this.getClass().getClassLoader().getResourceAsStream(filename);
     	BufferedReader br = new BufferedReader(new InputStreamReader(is));
-    	return br;
+    	return br;          
+    	
+    }
+    
+    
+    private String getResourceAsString(String filename) throws IOException {
+    	StringBuffer buffer = new StringBuffer();
+    	InputStream is = this.getClass().getClassLoader().getResourceAsStream(filename);
+    	BufferedReader br = new BufferedReader(new InputStreamReader(is));
+    	return br.readLine();          
     }
 
     @Test
@@ -165,7 +184,16 @@ public class TicketTest {
     }
 
     @Test
-    public void fromJsonArrayToTickets() {
-        org.junit.Assert.assertTrue(true);
+    public void fromJsonArrayToTickets() throws IOException {
+    	String jsonTickets = getResourceAsString("extract.json");
+    	Collection<Ticket> tickets = Ticket.fromJsonToArray(jsonTickets);
+    	
+        org.junit.Assert.assertNotNull(tickets);
+        assertTrue(!tickets.isEmpty());
+        Iterator<Ticket> iterator = tickets.iterator();
+        Ticket ticket = iterator.next();
+        assertEquals(ticket.getSummary(),"WP3150-4 Drools Guvnor Investigations");
+        
     }
+
 }

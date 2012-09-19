@@ -12,19 +12,11 @@ import java.util.List;
 
 privileged aspect Ticket_Roo_Json {
     
-    public String Ticket.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
-    }
-    
-    public static Ticket Ticket.fromJsonToTicket(String json) {
-        return new JSONDeserializer<Ticket>().use(null, Ticket.class).deserialize(json);
-    }
-    
     public static String Ticket.toJsonArray(Collection<Ticket> collection) {
         return new JSONSerializer().exclude("*.class").serialize(collection);
     }
     
-    public static Collection<Ticket> Ticket.fromJsonArrayToTickets(String json) {
+    public static Collection<Ticket> Ticket.fromJsonToArray(String json) {
         return new JSONDeserializer<List<Ticket>>().use(null, ArrayList.class).use("values", Ticket.class).deserialize(json);
     }
     
